@@ -2,8 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\bin",
-    "\\public\\javascripts",
-    "\\public\\stylesheets",
     "\\routes",
     "\\views"
   ],

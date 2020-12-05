@@ -14,7 +14,7 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb + srv://DiljotDhillon:Turang1313@clustertaskmanager.6hf30.mongodb.net/tasks',
     {
         useNewUrlParser: true,
-        useUnifiedTopolgy: true
+        useUnifiedTopology: true
     }).then(
         (res) =>
         {

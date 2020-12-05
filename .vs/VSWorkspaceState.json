@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\bin",
+    "\\public",
+    "\\public\\javascripts",
     "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\app.js",
   "PreviewInSolutionExplorer": false
 }

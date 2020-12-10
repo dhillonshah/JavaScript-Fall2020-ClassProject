@@ -1,3 +1,4 @@
+
 //Custom Client side JaveScript for UI Functionality
 
 //Delete Confirmation popup - attach to an HTML element with the class of "delete"

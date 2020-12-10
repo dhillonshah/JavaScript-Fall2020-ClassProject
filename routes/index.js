@@ -1,15 +1,10 @@
+//Link to Express Package
 var express = require('express');
 var router = express.Router();
 
 //ref for Auth
 const passport = require('passport')
 const User = require('../models/user')
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Task Manager' });
-});
-
 /* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('index', {
@@ -24,6 +19,11 @@ router.get('/about', (req, res) => {
         message: 'Content from the controller goes here',
         user: req.user
     })
+})
+
+//GET /register
+router.get('/register', (req, res, next) => {
+    res.render('register')
 })
 
 //POST /Register
@@ -74,5 +74,33 @@ router.get('/logout', (req, res, next) => {
     res.redirect('/login')
 })
 
+// GET / Google /
+// Check if the User is already logged into/with Google, if not invoke then Google Signin
+router.get('/google', passport.authenticate('google', {
+    scope: ['profile']
+}),
+    (req, res) => { })
+
+//Get / google/callback
+router.get('/google/callback', passport.authenticate('google', {
+    failureRedirect: '/login'
+}),
+    (req, res) => {
+        res.redirect('/tasks')
+    })
+
+// GET / Facebook/
+// Check if the User is already logged into/with Facebook, if not invoke then Facebook Signin
+router.get('/facebook', passport.authenticate('facebook'),
+    (req, res) => { }
+)
+
+//Get / facebook/callback
+router.get('/facebook/callback', passport.authenticate('facebook', {
+    failureRedirect: '/login'
+}),
+    (req, res) => {
+        res.redirect('/tasks')
+    })
 
 module.exports = router;
